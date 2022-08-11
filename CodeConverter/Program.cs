@@ -101,12 +101,10 @@ namespace CodeEncodingConverter
                 Worker = (i) =>
                 {
                     var file = _files[i];
-                    foreach (var type in targets)
-                    {
-                        WriteLine($"Handling file：{file}");
-                        var text = File.ReadAllLines(file, sourceEncoding);
-                        File.WriteAllLines(file, text, targetEncoding);
-                    }
+
+                    WriteLine($"Handling file：{file}");
+                    var text = File.ReadAllLines(file, sourceEncoding);
+                    File.WriteAllLines(file, text, targetEncoding);
                 },
                 InNewThread = false,
                 WriteConsole = true
